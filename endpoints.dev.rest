@@ -7,6 +7,10 @@ GET http://localhost:3000 HTTP/1.1
 GET http://localhost:3000/items HTTP/1.1
 
 ###
+# this works and returns "Item 44"
+GET http://localhost:3000/items/44 HTTP/1.1
+
+###
 # this works and returns "Create items"
 POST http://localhost:3000/items HTTP/1.1
 
@@ -22,6 +26,3 @@ Content-Type: application/json
   "description": "This is item one"
 }
 
-###
-# this works and returns "Hello World" using the Express Request/Response objects
-GET http://localhost:3000/items HTTP/1.1
