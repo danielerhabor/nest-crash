@@ -22,3 +22,6 @@ Content-Type: application/json
   "description": "This is item one"
 }
 
+###
+# this works and returns "Hello World" using the Express Request/Response objects
+GET http://localhost:3000/items HTTP/1.1
