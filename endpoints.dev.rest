@@ -2,3 +2,10 @@
 # this works and returns "Hello World"
 GET http://localhost:3000 HTTP/1.1
 
+###
+# this works and returns "Get all items"
+GET http://localhost:3000/items HTTP/1.1
+
+###
+# this works and returns "Create items"
+POST http://localhost:3000/items HTTP/1.1
