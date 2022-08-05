@@ -1,0 +1,61 @@
+name: next-crash
+services:
+  mongo-service:
+    image: mongo-image
+    container_name: mongo-container
+    hostname: mongo
+    restart: always
+    build:
+      context: .
+      dockerfile: mongo.Dockerfile
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-volume:/data/db
+    networks:
+      - nest-crash-network
+  
+  mongo-express-service:
+    image: mongo-express-image
+    container_name: mongo-express-container
+    hostname: mongo-express
+    restart: always
+    build:
+      context: .
+      dockerfile: mongo-express.Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
+    depends_on:
+      - mongo-service
+    tty: true
+    command: mongo-express
+    networks:
+      - nest-crash-network
+  node_service:
+    image: node-image
+    container_name: node-container
+    hostname: node
+    build:
+      context: .
+      dockerfile: node.Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo-express-service
+    volumes:
+      - ./nest-crash:/home/nest-crash
+    tty: true
+    command: tail -f /dev/null
+    networks:
+      - nest-crash-network
+
+volumes:
+  mongo-volume:
+    name: mongo-volume
+  node-volume:
+    name: node-volume
+networks:
+  nest-crash-network:
+    name: nest-crash-network
