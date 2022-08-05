@@ -3,7 +3,7 @@
 GET http://localhost:3000 HTTP/1.1
 
 ###
-# this works and returns "Get all items"
+# this works and returns all the items
 GET http://localhost:3000/items HTTP/1.1
 
 ###
