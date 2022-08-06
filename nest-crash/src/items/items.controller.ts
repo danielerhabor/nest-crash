@@ -12,7 +12,7 @@ import { ItemsService } from './items.service';
 import { Item } from './interfaces/item.interface';
 
 @Controller('items')
-export default class ItemsController {
+export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
   @Get()
