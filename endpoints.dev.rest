@@ -6,36 +6,28 @@ GET http://localhost:3000 HTTP/1.1
 # this works and returns all the items
 GET http://localhost:3000/items HTTP/1.1
 
-###
-GET http://localhost:3000/items/293275 HTTP/1.1
 
 ###
-# this works and returns "Create items"
-POST http://localhost:3000/items HTTP/1.1
+GET http://localhost:3000/items/62eed70580b52089d9dcd733 HTTP/1.1
 
 
 ###
-# this works and returns "This is item one"
 POST http://localhost:3000/items HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Item One",
-  "qty": 100,
-  "description": "This is item one"
+  "name": "Item Three",
+  "qty": 23,
+  "description": "This is item three"
 }
 
 ###
-# this works and returns "Delete 44"
-DELETE http://localhost:3000/items/44 HTTP/1.1
+DELETE http://localhost:3000/items/62eed70580b52089d9dcd733 HTTP/1.1
 
 ###
-# this works and returns Update 44 - Name: Item two
-PUT http://localhost:3000/items/44 HTTP/1.1
+PUT http://localhost:3000/items/62eed6b080b52089d9dcd72f HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Item Two",
-  "qty": 100,
-  "description": "This is item one"
+   "qty": 30
 }
